@@ -1,2 +1,2 @@
 # CSCI4980_TermProject
-This project is for TAEJS.
+This project is for TAE-JS.
