@@ -1,0 +1,11 @@
+#POINTCUT = {var pc = AspectScript.Pointcuts.exec(${DECL_EXPRESS});}
+
+#ADVICE = {                                \
+var persistAdvice = function(jp) {         \
+	var elem = jp.args[0];                 \
+	@Iterate (@{MAP} != EOF)               \ 
+	localStorage.setItem(                  \
+	"@{MAP[KEY]}", elem.@{MAP[VAR]}); \
+};}
+
+#ASPECT-JOINT = {AspectScript.after(pc, persistAdvice);}
