@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+	<!-- View -->
+ 	<extension point="org.eclipse.ui.views">
+		<view 
+			category="org.eclipse.jdt.ui.java"
+			class="edu.vt.silabs.model.view.MetadataView"
+			icon="icons/sample.gif"
+			id="org.eclipse.jdt.ui.view2"
+			name="Annotator View"
+			restorable="true">
+		</view>
+	</extension>
+
+	<!-- Marker -->
+	<extension id="auditmarker" 
+		point="org.eclipse.core.resources.markers" 
+		name="Properties Auditor Marker">
+		<super type="org.eclipse.core.resources.taskmarker" />
+		<super type="org.eclipse.core.resources.textmarker" />
+		<attribute name="key" />
+		<attribute name="violation" />
+		<persistent value="true" />
+	</extension>
+
+	<extension point="org.eclipse.ui.ide.markerResolution">
+		<markerResolutionGenerator
+		markerType="com.qualityeclipse.favorites.auditmarker"
+			class="edu.vt.silabs.marker.ViolationResolutionGenerator">
+		</markerResolutionGenerator>
+	</extension>
+
+	<!-- #1 Adding an action to JavaScript text editor #JavaScript Editor-->
+	<extension point="org.eclipse.ui.popupMenus">
+		<viewerContribution 
+			id="edu.vt.silabs.action.contribution.popup.editor" 
+			targetID="#JavaScriptEditorContext">
+			<action id="edu.vt.silabs.action.contribution.editor.action_add" 
+					label="&amp;Annotation Editor" 
+					menubarPath="additions" 
+					class="edu.vt.silabs.model.editor.JSEditor_AddMetadata">
+			</action>
+		</viewerContribution>
+	</extension>
+
+	<!-- #2 Adding an action to JavaScript text editor #JavaScript Editor -->
+	<extension point="org.eclipse.ui.popupMenus">
+		<viewerContribution 
+			id="edu.vt.silabs.action.contribution.popup.editor" 
+			targetID="#JavaScriptEditorContext">
+			<action id="edu.vt.silabs.action.contribution.editor.action_sync" 
+					label="&amp;Sync Marker" 
+					menubarPath="additions" 
+					class="edu.vt.silabs.model.editor.JSEditor_SyncMetadata">
+			</action>
+		</viewerContribution>
+	</extension>
+
+	<!-- #2 Adding an action to JavaScript text editor #JavaScript Editor
+	<extension point="org.eclipse.ui.popupMenus">
+		<viewerContribution 
+			id="edu.vt.silabs.action.contribution.popup.editor" 
+			targetID="#JavaScriptEditorContext">
+			<action id="edu.vt.silabs.action.contribution.editor.action_add_block" 
+					label="Add &amp;Block Metadata" 
+					menubarPath="additions" 
+					class="edu.vt.silabs.model.editor.JSEditor_AddBlockMetadata">
+			</action>
+		</viewerContribution>
+	</extension>
+	-->
+
+	<!-- Adding an action to JavaScript text editor #JavaScript Editor-->
+	<extension point="org.eclipse.ui.popupMenus">
+		<viewerContribution 
+			id="edu.vt.silabs.action.contribution.popup.editor" 
+			targetID="#JavaScriptEditorContext">
+			<action id="edu.vt.silabs.action.contribution.editor.action_remove" 
+					label="Remove Metadata" 
+					menubarPath="additions" 
+					class="edu.vt.silabs.model.editor.JSEditor_RemoveMetadata">
+			</action>
+		</viewerContribution>
+	</extension>
+
+	<!-- Adding an action to Java editor #Java Editor: CompilationUnitEditorContext -->
+	<extension point="org.eclipse.ui.popupMenus">
+		<viewerContribution 
+			id="edu.vt.silabs.action.contribution.popup.editor" 
+			targetID="#CompilationUnitEditorContext">
+			<action id="edu.vt.silabs.action.contribution.editor.action2" 
+					label="Save Metadata" 
+					menubarPath="additions" 
+					class="edu.vt.silabs.model.editor.ActionDelegateJavaEditor">
+			</action>
+		</viewerContribution>
+	</extension>
+</plugin>
+

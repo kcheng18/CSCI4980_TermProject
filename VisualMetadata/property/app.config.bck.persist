@@ -1,0 +1,6 @@
+kind-non-functional-concern = persist
+result-dir-path = /home/mksong/workspace/VisualMetadata/result/case1_persist
+result-xml-file = generated.xml
+result-aspectjs-file = aspect.js
+workspace-path = /home/mksong/workspace/VisualMetadata
+template-path = /home/mksong/workspace/VisualMetadata/template

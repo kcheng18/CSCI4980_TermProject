@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><security-mapping><aspect function="showEncryptMsg"><variable kind="adf" name="plaintext"/><variable kind="encrypt" name="plaintext"/><variable kind="encrypt" name="plaintext"/></aspect></security-mapping>
