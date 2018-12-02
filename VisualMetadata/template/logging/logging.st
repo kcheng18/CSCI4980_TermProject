@@ -7,6 +7,7 @@ var adviceLogging$itr$ = function(jp){
 	jp.args.forEach(function(element){	
 		parm += element + " ";
 	});
+	var logging.LevelV$itr$ = "$severity$";
 	switch(logging.Level){	
 		case "debug":
 		case "trace":
@@ -17,13 +18,14 @@ var adviceLogging$itr$ = function(jp){
 			break;
 		case "error":
 		case "fatal":
-			var ajaxAppender = new log4javascript.AjaxAppender(loggging.URL);
-		log.addAppender(ajaxAppender);
-		if(logging.Level == "error")
-			log.error(functionName + ", " + parm);
-		else
-			log.fatal(functionName + ", " + parm);
-		break;		
+			var ajaxAppender = new log4javascript.AjaxAppender(logging.URL);
+			log.addAppender(ajaxAppender);
+			if(logging.Level == "error")
+				log.error(functionName + ", " + parm);
+			else
+				log.fatal(functionName + ", " + parm);
+			break;
+		default;		
 	}
 };
 
